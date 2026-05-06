@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="output"></p>
+
+<script>
+let result = "";
+
+// loop from 0 to 15
+for (let i = 0; i <= 15; i++) {
+
+    // check even or odd
+    if (i % 2 == 0) {
+        result += i + " is Even <br>";
+    } else {
+        result += i + " is odd <br>";
+    }
+}
+
+// display output
+document.getElementById("output").innerHTML = result;
+</script>
+
+</body>
+</html>

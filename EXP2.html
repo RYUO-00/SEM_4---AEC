@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Squares and Cubes</h2>
+
+Enter a number:
+<input type="number" id="num">
+
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+
+function calculate() {
+    let n = document.getElementById("num").value;
+    let output = "";
+
+    for (let i = 0; i <= n; i++) {
+        let square = i * i;
+        let cube = i * i * i;
+
+        output += "Number: " + i + " Square: " + square + " Cube: " + cube + "<br>";
+    }
+
+    document.getElementById("result").innerHTML = output;
+}
+
+</script>
+
+</body>
+</html>

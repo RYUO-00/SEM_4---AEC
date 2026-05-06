@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="output"></p>
+
+<script>
+// XML data as string
+let xmlData = `
+<students>
+
+<student>
+    <id>101</id>
+    <name>Amit</name>
+    <age>20</age>
+    <course>BCA</course>
+</student>>
+
+<student>
+    <id>102</id>
+    <name>Neha</name>
+    <age>21</age>
+    <course>BSC</course>
+</student>
+
+<student>
+    <id>103</id>
+    <name>Rahul</name>
+    <age>22</age>
+    <course>BTech</course>
+</student>
+
+</students>`;
+
+// Parse XML
+let parser = new DOMParser();
+let xmlDoc = parser.parseFromString(xmlData, "text/xml");
+
+// Access second student (index starts from 0)
+let secondStudent = xmlDoc.getElementsByTagName("student")[1];
+
+// Get details
+let name = secondStudent.getElementsByTagName("name")[0].textContent;
+let age = secondStudent.getElementsByTagName("age")[0].textContent;
+let course = secondStudent.getElementsByTagName("course")[0].textContent;
+
+// Display
+document.getElementById("output").innerHTML =
+"Name: " + name + "<br> Age: " + age + "<br> Course: " + course;
+
+</script>
+
+</body>
+</html>
