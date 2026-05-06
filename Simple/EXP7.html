@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="output"></p>
+
+<script>
+let xmlData = `
+<students>
+    <student><id>101</id><name>Amit</name><age>20</age><course>BCA</course></student>
+    <student><id>102</id><name>Neha</name><age>21</age><course>BSC</course></student>
+    <student><id>103</id><name>Rahul</name><age>22</age><course>BTech</course></student>
+</students>`;
+
+let xmlDoc = new DOMParser().parseFromString(xmlData, "text/xml");
+
+function getField(student, field) {
+    return student.getElementsByTagName(field)[0].textContent;
+}
+
+let s = xmlDoc.getElementsByTagName("student")[1];
+
+document.getElementById("output").innerHTML =
+    `Name: ${getField(s,"name")} <br> Age: ${getField(s,"age")} <br> Course: ${getField(s,"course")}`;
+</script>
+
+</body>
+</html>
