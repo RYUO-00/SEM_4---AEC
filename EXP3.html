@@ -2,9 +2,6 @@
 <html>
 <body>
 
-<h2>Number to Words (0-999)</h2>
-
-Enter Number:
 <input type="text" id="num">
 <button onclick="convert()">Convert</button>
 
@@ -12,45 +9,47 @@ Enter Number:
 
 <script>
 
-function convert() {
-
-    let n = document.getElementById("num").value;
-
-        // validation
-    if (isNaN(n) || n < 0 || n > 999) { 
-    document.getElementById("result").innerHTML = "Enter a valid number between 0 and 999";
-    return;
-    }
+function convert()
+{
+    let n = parseInt(document.getElementById("num").value);
 
     let ones = ["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"];
+    let teens = ["Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen",
+                 "Sixteen","Seventeen","Eighteen","Nineteen"];
+    let tens = ["","","Twenty","Thirty","Forty","Fifty",
+                "Sixty","Seventy","Eighty","Ninety"];
 
-    let teens = ["Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];
-
-    let tens = ["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"];
-
-    let num = parseInt(n);
     let word = "";
 
-    if(num >= 100){ 
-    word += ones[Math.floor(num/100)] + " Hundred ";
-    num = num % 100;
-    }
+    let h = Math.floor(n / 100);
+    let t = Math.floor((n % 100) / 10);
+    let o = n % 10;
 
-    if(num >= 10 && num <= 19){ 
-    word += teens[num-10];
-    }
-    else{
-        word += tens[Math.floor(num/10)];
-        word += " " + ones[num%10];
-    }
-
-    if(n == 0){
+    if(n == 0)
+    {
         word = "Zero";
     }
+    else
+    {
+        // hundreds
+        if(h > 0)
+            word += ones[h] + " Hundred ";
 
-    document.getElementById("result").innerHTML = "In Words: " + word;
+        // teens
+        if(t == 1)
+        {
+            word += teens[o];
+        }
+        else
+        {
+            word += tens[t] + " ";
+            word += ones[o];
+        }
+    }
 
+    document.getElementById("result").innerHTML = word;
 }
+
 </script>
 
 </body>
