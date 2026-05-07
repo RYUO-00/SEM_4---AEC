@@ -1,0 +1,31 @@
+form {
+    max-width: 300px;
+    margin: auto;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    font-family: Arial, sans-serif;
+}
+label { 
+    display: block; 
+    margin-top: 1em; 
+    color: #333; 
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; 
+    padding: 0.5em;
+    box-sizing: border-box;
+    border: 1px solid #ccc; border-radius: 4px;
+}
+input[type="submit"] {
+    margin-top: 1em; 
+    padding: 0.7em;
+    color: #fff; 
+    background: #0073FF;
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+}
+input[type="submit"]:hover { background: #005663; }
