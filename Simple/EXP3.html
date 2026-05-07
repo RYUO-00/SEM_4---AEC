@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="num">
+<button onclick="convert()">Convert</button>
+
+<p id="result"></p>
+
+<script>
+
+function convert()
+{
+    let n = parseInt(document.getElementById("num").value);
+
+    let ones = ["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"];
+    let teens = ["Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen",
+                 "Sixteen","Seventeen","Eighteen","Nineteen"];
+    let tens = ["","","Twenty","Thirty","Forty","Fifty",
+                "Sixty","Seventy","Eighty","Ninety"];
+
+    let word = "";
+
+    let h = Math.floor(n / 100);
+    let t = Math.floor((n % 100) / 10);
+    let o = n % 10;
+
+    if(n == 0)
+    {
+        word = "Zero";
+    }
+    else
+    {
+        // hundreds
+        if(h > 0)
+            word += ones[h] + " Hundred ";
+
+        // teens
+        if(t == 1)
+        {
+            word += teens[o];
+        }
+        else
+        {
+            word += tens[t] + " ";
+            word += ones[o];
+        }
+    }
+
+    document.getElementById("result").innerHTML = word;
+}
+
+</script>
+
+</body>
+</html>
